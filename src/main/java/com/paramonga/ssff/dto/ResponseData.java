@@ -1,4 +1,4 @@
-package com.paramonga.ssff.mapper;
+package com.paramonga.ssff.dto;
 
 
 import lombok.*;

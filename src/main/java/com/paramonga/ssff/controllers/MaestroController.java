@@ -2,7 +2,7 @@ package com.paramonga.ssff.controllers;
 
 import com.paramonga.ssff.entities.*;
 import com.paramonga.ssff.functions.AreaTiFunction;
-import com.paramonga.ssff.mapper.AreaTiMapper;
+import com.paramonga.ssff.dto.AreaTiMapper;
 import com.paramonga.ssff.services.impl.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

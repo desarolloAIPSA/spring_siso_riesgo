@@ -1,7 +1,7 @@
 package com.paramonga.ssff.functions;
 
 import com.paramonga.ssff.entities.AreaTi;
-import com.paramonga.ssff.mapper.AreaTiMapper;
+import com.paramonga.ssff.dto.AreaTiMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

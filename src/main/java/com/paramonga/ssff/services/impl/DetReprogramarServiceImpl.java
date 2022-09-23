@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+
+
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class DetReprogramarServiceImpl implements DetReprogramarService {
@@ -21,6 +23,19 @@ public class DetReprogramarServiceImpl implements DetReprogramarService {
 
     @Override
     public DetReprogramar getDetReprogramarService(Integer codigo) {
+        /*repository.saveAll();*/
         return repository.findByCodReprogramacion(codigo);
     }
+
+    /*cso.setObservacion(cuerpo.getComentario());
+    cso.setModifiedBy(usuarioAprobador);
+    CsOrdenServicio out = this.csOrdenServicioDeltaRepository.save(cso);
+
+    historial.setCsOrdenServicio(out);
+    historial.setDescripcion(cuerpo.getComentario());
+    historial.setFechaHistorial(DateUtils.obtenerFechaHoraActual());
+    historial.setMtrEstado(optionalEstado.get());
+    historial.setUsuarioHistorial(usuarioAprobador);
+    historial.setCreatedBy(usuarioAprobador);
+    this.csHistorialDeltaRepository.save(historial);*/
 }

@@ -2,10 +2,7 @@ package com.paramonga.ssff.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,8 +15,10 @@ import java.time.LocalDateTime;
 public class DetHallazgo {
 
     @Id
-    @Column(name = "cod_hallazgo", nullable = false)
-    private String codHallazgo;
+    @Column(name = "cod_hallazgo", unique = true, nullable = false, insertable = false, updatable = false)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "ID_SEQ")
+    private Integer codHallazgo;
 
     @Column(name = "fecha_ingreso")
     private LocalDateTime fechaIngreso;

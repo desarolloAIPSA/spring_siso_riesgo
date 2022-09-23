@@ -1,7 +1,7 @@
 package com.paramonga.ssff.controllers;
 
 import com.paramonga.ssff.entities.TestFoto;
-import com.paramonga.ssff.mapper.ResponseData;
+import com.paramonga.ssff.dto.ResponseData;
 import com.paramonga.ssff.services.impl.TestFotoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
