@@ -1,9 +1,11 @@
 package com.paramonga.ssff.controllers;
 
 import com.paramonga.ssff.entities.*;
+import com.paramonga.ssff.exception.BusinessException;
 import com.paramonga.ssff.functions.AreaTiFunction;
 import com.paramonga.ssff.dto.AreaTiMapper;
 import com.paramonga.ssff.services.impl.*;
+import com.paramonga.ssff.utils.JWTUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.Optional;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/maestro")
 public class MaestroController {
 
@@ -49,9 +52,16 @@ public class MaestroController {
     @Autowired
     private AreaTiFunction areaTiMapper;
 
+    @Autowired
+    private JWTUtil jwtUtil;
+
 
     @GetMapping("/empresa")
-    public ResponseEntity<List<MasCoCeEmpresa>> getMaestroEmpresa(){
+    public ResponseEntity<List<MasCoCeEmpresa>> getMaestroEmpresa(@RequestHeader(value = "Authorization") String token){
+        String userId = jwtUtil.getValue(token);
+        if(userId==null){
+            throw new BusinessException("P-300", HttpStatus.UNAUTHORIZED, "No JWT token valid in the request headers");
+        }
         return new ResponseEntity<List<MasCoCeEmpresa>>(serviceEmpresa.getMaestroCoCeEmpresa(), HttpStatus.OK);
     }
 

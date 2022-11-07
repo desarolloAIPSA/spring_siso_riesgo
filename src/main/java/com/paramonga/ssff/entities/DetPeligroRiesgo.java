@@ -2,11 +2,11 @@ package com.paramonga.ssff.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
@@ -16,17 +16,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class DetPeligroRiesgo {
+public class DetPeligroRiesgo implements Serializable {
 
     @Id
-    @Column(name = "cod_pelig_ries", nullable = false)
+    @Column(name = "cod_pelig_ries")
+    @GeneratedValue(strategy=IDENTITY, generator = "SEQ_SGR_DH_PELIGRO_RIESGO")
+    @SequenceGenerator(name = "SEQ_SGR_DH_PELIGRO_RIESGO", sequenceName = "SEQ_SGR_DH_PELIGRO_RIESGO",allocationSize = 1,initialValue = 1)
     private Integer codPeligRies;
 
-    @Column(name = "cod_peligro_riesgo", nullable = false)
+    @Column(name = "cod_peligro_riesgo")
     private Integer codPeligroRiesgo;
 
-    @Column(name = "cod_hallazgo", nullable = false)
-    private String codHallazgo;
+    @Column(name = "cod_hallazgo")
+    private Integer codHallazgo;
 
     @Column(name = "usr_registra")
     private String usrRegistra;

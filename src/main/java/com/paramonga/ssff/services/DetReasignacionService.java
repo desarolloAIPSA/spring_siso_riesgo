@@ -5,4 +5,5 @@ import com.paramonga.ssff.entities.DetReasignacion;
 public interface DetReasignacionService {
 
     DetReasignacion getDetReasignacionService(Integer codigo);
+    DetReasignacion crearReasignacion(DetReasignacion input);
 }

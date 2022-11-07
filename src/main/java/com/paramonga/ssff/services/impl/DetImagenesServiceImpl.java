@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class DetImagenesServiceImpl implements DetImagenesService {
@@ -22,5 +24,15 @@ public class DetImagenesServiceImpl implements DetImagenesService {
     @Override
     public DetImagenes getDetImagenesService(Integer codigo) {
         return repository.findByCodImagen(codigo);
+    }
+
+    @Override
+    public DetImagenes crearDetImagenes(DetImagenes input) throws Exception {
+        return repository.save(input);
+    }
+
+    @Override
+    public List<DetImagenes> crearDetImagenesList(List<DetImagenes> input) throws Exception {
+        return repository.saveAll(input);
     }
 }

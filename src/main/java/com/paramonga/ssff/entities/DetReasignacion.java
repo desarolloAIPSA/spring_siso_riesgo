@@ -2,11 +2,10 @@ package com.paramonga.ssff.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
@@ -19,11 +18,13 @@ import java.time.LocalDateTime;
 public class DetReasignacion {
 
     @Id
-    @Column(name = "cod_reasignacion", nullable = false)
+    @Column(name = "cod_reasignacion")
+    @GeneratedValue(strategy=IDENTITY, generator = "SEQ_SGR_DH_REASIG")
+    @SequenceGenerator(name = "SEQ_SGR_DH_REASIG", sequenceName = "SEQ_SGR_DH_REASIG",allocationSize = 1,initialValue = 1)
     private Integer codReasignacion;
 
-    @Column(name = "cod_hallazgo", nullable = false)
-    private String codHallazgo;
+    @Column(name = "cod_hallazgo")
+    private Integer codHallazgo;
 
     @Column(name = "usr_antiguo")
     private String usrAntiguo;

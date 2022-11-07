@@ -2,11 +2,12 @@ package com.paramonga.ssff.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 
 @Entity
@@ -16,16 +17,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class DetImagenes {
+public class DetImagenes implements Serializable {
 
     @Id
-    @Column(name = "cod_imagen", nullable = false)
+    @Column(name = "cod_imagen")
+    @GeneratedValue(strategy=IDENTITY, generator = "SEQ_SGR_DH_IMAGENES")
+    @SequenceGenerator(name = "SEQ_SGR_DH_IMAGENES", sequenceName = "SEQ_SGR_DH_IMAGENES",allocationSize = 1,initialValue = 1)
     private Integer codImagen;
 
     @Column(name = "cod_hallazgo")
-    private String codHallazgo;
+    private Integer codHallazgo;
 
-    @Column(name = "ruta")
+    @Column(name = "RUTA")
     private String ruta;
 
     @Column(name = "flag_estado")

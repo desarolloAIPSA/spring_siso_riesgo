@@ -4,14 +4,12 @@ import com.paramonga.ssff.entities.TestFoto;
 import com.paramonga.ssff.dto.ResponseData;
 import com.paramonga.ssff.services.impl.TestFotoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/foto")
 public class TestFotoController {
 

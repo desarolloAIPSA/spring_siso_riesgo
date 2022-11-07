@@ -11,4 +11,5 @@ public class UsuarioModel {
     private Boolean estado;
     private String user;
     private String nombre;
+    private String token;
 }

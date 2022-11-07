@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class DetPeligroRiesgoServiceImpl implements DetPeligroRiesgoService {
@@ -22,5 +24,10 @@ public class DetPeligroRiesgoServiceImpl implements DetPeligroRiesgoService {
     @Override
     public DetPeligroRiesgo getDetPeligroRiesgo(Integer codigo) {
         return repository.findByCodPeligRies(codigo);
+    }
+
+    @Override
+    public List<DetPeligroRiesgo> crearPeligroRiesgo(List<DetPeligroRiesgo> input) {
+        return repository.saveAll(input);
     }
 }

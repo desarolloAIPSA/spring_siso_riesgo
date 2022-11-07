@@ -23,4 +23,9 @@ public class DetReasignacionServiceImpl implements DetReasignacionService {
     public DetReasignacion getDetReasignacionService(Integer codigo) {
         return repository.findByCodReasignacion(codigo);
     }
+
+    @Override
+    public DetReasignacion crearReasignacion(DetReasignacion input) {
+        return repository.save(input);
+    }
 }
